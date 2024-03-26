@@ -5,13 +5,13 @@
 EEPROM_24cXX::EEPROM_24cXX(uint8_t address, int type)
 {
     chip_address = address;
-    chip_type = type;
-    
-    
+    chip_type = type;  
 }
+
 void EEPROM_24cXX::begin(){  
   Wire.begin();  
 }
+
 void EEPROM_24cXX::WriteByte(int address, byte value){  
   Wire.beginTransmission(chip_address);
   if(chip_type > 2){
