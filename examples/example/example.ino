@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <EEPROM_24CXX/EEPROM_24cXX.h>
+#include <EEPROM_24cXX.h>
 EEPROM_24cXX eep(0x50,C02);//0x05 - i2c адрес, C02 - тип памяти (C01,C02,C04,C08, etc)
 
 void setup() {
