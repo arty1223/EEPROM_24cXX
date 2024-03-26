@@ -1,4 +1,4 @@
-// #include <Arduino.h>
+#include <Arduino.h>
 #include "EEPROM_24cXX.h"
 #include <Wire.h>
 
