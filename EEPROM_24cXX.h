@@ -16,15 +16,15 @@
 class EEPROM_24cXX
 {
 public:
-    EEPROM_24cXX(uint8_t address,  int type);
+    EEPROM_24cXX(uint8_t address,  uint16_t type);
     void WriteByte(int address, byte value);
-    int WriteInt(int address, int value);
+    uint16_t WriteInt(int address, int value);
     byte ReadByte(int address);
-    int ReadInt(int address);
-    int ByteSize();
+    uint16_t ReadInt(int address);
+    uint32_t ByteSize();
     void begin();
 private:
     byte chip_address;
-    int chip_type;
+    uint16_t chip_type;
 };
 #endif

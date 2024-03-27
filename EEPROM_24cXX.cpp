@@ -1,8 +1,8 @@
-#include <Arduino.h>
+// #include <Arduino.h>
 #include "EEPROM_24cXX.h"
 #include <Wire.h>
 
-EEPROM_24cXX::EEPROM_24cXX(uint8_t address, int type)
+EEPROM_24cXX::EEPROM_24cXX(uint8_t address, uint16_t type)
 {
     chip_address = address;
     chip_type = type;  
@@ -19,12 +19,10 @@ void EEPROM_24cXX::WriteByte(int address, byte value){
     Wire.write((int)(address & 0xFF)); 
   }else{
     Wire.write((int)(address));
-  } 
-  
+  }   
   Wire.write(value);
   Wire.endTransmission();
-  delay(2);
-  
+  delay(2);  
 }
 
 byte EEPROM_24cXX::ReadByte(int address){
@@ -40,16 +38,16 @@ byte EEPROM_24cXX::ReadByte(int address){
   return(Wire.read());
 }
 
-int EEPROM_24cXX::WriteInt(int address, int value){
+uint16_t EEPROM_24cXX::WriteInt(int address, int value){
   WriteByte(address, value >> 8);
   WriteByte(address + 1, value & 0xff);
   return(address + 1);
 }
 
-int EEPROM_24cXX::ReadInt(int address){
+uint16_t EEPROM_24cXX::ReadInt(int address){
   return((ReadByte(address) << 8) + ReadByte(address + 1));
 }
 
-int EEPROM_24cXX::ByteSize(){
+uint32_t EEPROM_24cXX::ByteSize(){
   return(chip_type * 128);
 }
