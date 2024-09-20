@@ -7,7 +7,7 @@
 
 #include <Arduino.h>
 #include <EEPROM_24cXX.h>
-EEPROM_24cXX eep(0x50,C02);//0x05 - i2c адрес, C02 - тип памяти (C01,C02,C04,C08, etc)
+EEPROM_24cXX eep(0x50,C02);//0x50 - i2c адрес, C02 - тип памяти (C01,C02,C04,C08, etc)
 
 void setup() {
   Serial.begin(115200);
