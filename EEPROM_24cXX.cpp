@@ -63,7 +63,7 @@ uint16_t EEPROM_24cXX::WriteFloat(uint16_t address, float value)
   };
   datatype t;
   t.f = value;
-  for (int i = 0, address; i < 4; i++, address++)
+  for (int i = 0; i < 4; i++, address++)
   {
     WriteByte(address, t.b[i]);
   }
@@ -77,7 +77,7 @@ float EEPROM_24cXX::ReadFloat(uint16_t address){
     byte b[4];
   };
   datatype t;  
-  for (int i = 0, address; i < 4; i++, address++)
+  for (int i = 0; i < 4; i++, address++)
   {
     t.b[i] = ReadByte(address);
   }
